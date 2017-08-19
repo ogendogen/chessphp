@@ -1,0 +1,136 @@
+/* General */
+html {
+	/*margin-bottom: 65px;*/
+}
+header, footer {
+	text-align: center;
+}
+#main {
+	border: 1px solid #777;
+	background: #BBB;
+}
+#menu {
+	display: block;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+}
+#menu>li {
+	display: inline;
+	margin: 0 0.25em;
+}
+.error {
+	display: block;
+	background: #F77;
+	border: 2px solid #B00;
+}
+.error>h1 {
+	margin: 0 auto;
+	text-align: center;
+}
+body {
+  padding-top: 50px;
+  /*padding-bottom: 70px;*/
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here
+  height: 60px; */
+  background-color: #FFE4B5;
+}
+
+/*.navbar-static-bottom {
+  @extend .navbar-fixed-bottom;
+  position: relative;
+  border-width: 1px 1px 0;
+}*/
+
+/* Glyphicon */
+.glyphicon {
+	color: #FF4500;
+	font-size: 20px;
+}
+
+/* Popover */
+.popover {
+    border: 2px dotted black;
+}
+
+.popover-title {
+    background-color: #FF4500;
+    color: #FFFFFF;
+    font-size: 28px;
+    text-align: center;
+}
+
+.popover-content {
+    background-color: #4169E1;
+    color: #FFFFFF;
+    padding: 25px;
+}
+
+.arrow {
+    border-right-color: black !important;
+}
+
+/* Browse */
+.gamerow {
+	width: 400px;
+	margin: 0.5em auto;
+	text-align: center;
+	display: block;
+	text-decoration: none;
+}
+.gamerow:hover {
+	text-decoration: none;
+}
+
+/* Game */
+.field {
+	float: left;
+	border: 1px solid #000;
+	width: 60px;
+	height: 60px;
+	padding: 6px;
+}
+
+#board {
+	width: 482px;
+	height: 482px;
+	border: 1px solid #000;
+	margin-top: 25px;
+}
+#info {
+	width: 300px;
+	height: 482px;
+	border: 1px solid #000;
+	margin-top: 25px;
+}
+#player1, #player2, #match {
+	float: left;
+	width: 300px;
+	text-align: center;
+}
+
+#player1, #player2 {
+	border-bottom: 1px solid #000;
+	height: 50px;
+	line-height: 50px;
+	border-right: 1px solid #000;
+}
+
+#match {
+	height: 382px;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+}
+
+#process {
+	opacity: 1.00;
+}
