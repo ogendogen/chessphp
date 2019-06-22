@@ -1,5 +1,6 @@
 <?php
 	$before = microtime(true);// Performance Tests
+    ini_set('error_reporting', E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 	
 	session_start();
 	require_once("inc/constants.php");
