@@ -12,27 +12,35 @@
 	// Main Area
 	require_once("inc/modal.html"); // html modal window
 
-	switch($_GET["tab"]) {
-	case "register":
-		include("inc/register.php");
-		break;
-	case "login":
-		include("inc/login.php");
-		break;
-	case "browse":
-		include("inc/browse.php");
-		break;
-	case "play":
-		include("inc/play.php");
-		break;
-	case "help":
-		include("inc/help.php");
-		break;
-	default:
-		include("inc/main.php");
-		break;
-	}
-	
+    if (isset($_GET["tab"]))
+    {
+        switch($_GET["tab"])
+        {
+            case "register":
+                include("inc/register.php");
+                break;
+            case "login":
+                include("inc/login.php");
+                break;
+            case "browse":
+                include("inc/browse.php");
+                break;
+            case "play":
+                include("inc/play.php");
+                break;
+            case "help":
+                include("inc/help.php");
+                break;
+            default:
+                include("inc/main.php");
+                break;
+        }
+    }
+    else
+    {
+        include("inc/main.php");
+    }
+
 	// End of main area
 	require_once("inc/footer.php");
 ?>
