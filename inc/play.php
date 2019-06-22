@@ -74,21 +74,21 @@ else {
 
 <script>
 var svgitem = {
-	item1: '<? echo(addcslashes(implode(file("svg/bking.svg")),"\"'\r\n")); ?>',
-	item2: '<? echo(addcslashes(implode(file("svg/bqueen.svg")),"\"'\r\n")); ?>',
-	item3: '<? echo(addcslashes(implode(file("svg/bbishop.svg")),"\"'\r\n")); ?>',
-	item4: '<? echo(addcslashes(implode(file("svg/bknight.svg")),"\"'\r\n")); ?>',
-	item5: '<? echo(addcslashes(implode(file("svg/brook.svg")),"\"'\r\n")); ?>',
-	item6: '<? echo(addcslashes(implode(file("svg/bpawn.svg")),"\"'\r\n")); ?>',
-	item8: '<? echo(addcslashes(implode(file("svg/wpawn.svg")),"\"'\r\n")); ?>',
-	item9: '<? echo(addcslashes(implode(file("svg/wrook.svg")),"\"'\r\n")); ?>',
-	item10: '<? echo(addcslashes(implode(file("svg/wknight.svg")),"\"'\r\n")); ?>',
-	item11: '<? echo(addcslashes(implode(file("svg/wbishop.svg")),"\"'\r\n")); ?>',
-	item12: '<? echo(addcslashes(implode(file("svg/wqueen.svg")),"\"'\r\n")); ?>',
-	item13: '<? echo(addcslashes(implode(file("svg/wking.svg")),"\"'\r\n")); ?>',
+	item1: '<?php echo(addcslashes(implode(file("svg/bking.svg")),"\"'\r\n")); ?>',
+	item2: '<?php echo(addcslashes(implode(file("svg/bqueen.svg")),"\"'\r\n")); ?>',
+	item3: '<?php echo(addcslashes(implode(file("svg/bbishop.svg")),"\"'\r\n")); ?>',
+	item4: '<?php echo(addcslashes(implode(file("svg/bknight.svg")),"\"'\r\n")); ?>',
+	item5: '<?php echo(addcslashes(implode(file("svg/brook.svg")),"\"'\r\n")); ?>',
+	item6: '<?php echo(addcslashes(implode(file("svg/bpawn.svg")),"\"'\r\n")); ?>',
+	item8: '<?php echo(addcslashes(implode(file("svg/wpawn.svg")),"\"'\r\n")); ?>',
+	item9: '<?php echo(addcslashes(implode(file("svg/wrook.svg")),"\"'\r\n")); ?>',
+	item10: '<?php echo(addcslashes(implode(file("svg/wknight.svg")),"\"'\r\n")); ?>',
+	item11: '<?php echo(addcslashes(implode(file("svg/wbishop.svg")),"\"'\r\n")); ?>',
+	item12: '<?php echo(addcslashes(implode(file("svg/wqueen.svg")),"\"'\r\n")); ?>',
+	item13: '<?php echo(addcslashes(implode(file("svg/wking.svg")),"\"'\r\n")); ?>',
 };
-var game_id = <? echo($game); ?>;
-var user_id = <? echo($_SESSION['userid']?$_SESSION['userid']:"null"); ?>;
+var game_id = <?php echo($game); ?>;
+var user_id = <?php echo($_SESSION['userid']?$_SESSION['userid']:"null"); ?>;
 var clickedx = -1;
 var clickedy = -1;
 var currentp = "white";
@@ -118,7 +118,7 @@ function onDataGet(data) {
 	}
 }
 function refreshData() {
-	$.getJSON('http://<? echo($site); ?>/move.php', { game: game_id }, onDataGet);
+	$.getJSON('http://<?php echo($site); ?>/move.php', { game: game_id }, onDataGet);
 }
 function refreshBoard(board) {
 	game_board = board;
@@ -145,14 +145,14 @@ function tileClicked(x,y) {
 			$("#field"+clickedx+clickedy).css("background-color", "#A52A2A");
 		}
 		promData = { game: game_id, from: clickedx+""+clickedy, to: x+""+y };
-		$.getJSON('http://<? echo($site); ?>/move.php', promData, function(data){
+		$.getJSON('http://<?php echo($site); ?>/move.php', promData, function(data){
 			if (data instanceof Array) {
 				if (data[0] === true) {
 					refreshData();
 				} else if (data[1] === "unknown promotion") {
 					showPromotion(currentp=="white",function(ev){
 						promData.pro = ev.data.piece;
-						$.getJSON('http://<? echo($site); ?>/move.php', promData, function(data){
+						$.getJSON('http://<?php echo($site); ?>/move.php', promData, function(data){
 							if (data instanceof Array && data[0] === true) {
 								refreshData();
 							}
@@ -170,7 +170,7 @@ function tileClicked(x,y) {
 }
 function joinClick(player) {
 	if (user_id != null) {
-		$.getJSON('http://<? echo($site); ?>/move.php', { game: game_id, slot: player, player: user_id }, function(data){
+		$.getJSON('http://<?php echo($site); ?>/move.php', { game: game_id, slot: player, player: user_id }, function(data){
 			refreshData();
 		});
 	}
