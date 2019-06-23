@@ -195,3 +195,5 @@ $(document).ready(function(){
 	}
 });
 </script>
+
+<script src="js/speechAPI.js"></script>
