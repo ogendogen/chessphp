@@ -46,18 +46,29 @@ function transalateChessNotation(notation)
     var parts = notation.split(" ");
     var current = getLastArrayElement(parts);
     var color = (parts.length === 2 ? "Black" : "White");
+    var notation = getSingleNotation(notation);
     var specialMove = getSpecialMove(notation, color);
 
     var final;
     if (specialMove === "none")
     {
         var isCheck = getCheck(notation);
+        var isBeaten = getBeat(notation);
         var figure = getFigure(notation);
         var sourcePosition = getSourcePosition(notation).toUpperCase();
         var targetPosition = getTargetPosition(notation).toUpperCase();
-        if (isCheck)
+
+        if (isCheck && isBeaten)
         {
-            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition + " and do a check";
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition.slice(0, -1) + ", beat checker and do a check";
+        }
+        else if (isCheck)
+        {
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition.slice(0, -1) + " and do a check";
+        }
+        else if (isBeaten)
+        {
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition + " and beat checker";
         }
         else
         {
@@ -72,6 +83,11 @@ function transalateChessNotation(notation)
     return final;
 }
 
+function getBeat(notation)
+{
+    return notation.includes(":");
+}
+
 function getCheck(notation)
 {
     return notation.includes("+");
@@ -79,28 +95,27 @@ function getCheck(notation)
 
 function getSpecialMove(notation, color)
 {
-    var singleNotation = getSingleNotation(notation);
-    if (singleNotation === "O-O")
+    if (notation === "O-O")
     {
         return color + "short castling";
     }
-    else if (singleNotation === "O-O-O")
+    else if (notation === "O-O-O")
     {
         return color + "long castling";
     }
-    else if (singleNotation === "1-0")
+    else if (notation === "1-0")
     {
         return "White wins";
     }
-    else if (singleNotation === "0-1")
+    else if (notation === "0-1")
     {
         return "Black wins";
     }
-    else if (singleNotation === "0.5-0.5")
+    else if (notation === "0.5-0.5")
     {
         return "Match draw";
     }
-    else if (singleNotation.includes("#"))
+    else if (notation.includes("#"))
     {
         return "Check mate";
     }
@@ -110,38 +125,35 @@ function getSpecialMove(notation, color)
 
 function getSourcePosition(notation)
 {
-    var singleNotation = getSingleNotation(notation);
-    if (singleNotation[0] == singleNotation[0].toUpperCase())
+    if (notation[0] == notation[0].toUpperCase())
     {
-        singleNotation = singleNotation.substring(1);
+        notation = notation.substring(1);
     }
-    if (singleNotation.includes("-"))
+    if (notation.includes("-"))
     {
-        return singleNotation.split("-")[0];
+        return notation.split("-")[0];
     }
-    else if (singleNotation.includes(":"))
+    else if (notation.includes(":"))
     {
-        return singleNotation.split(":")[0];
+        return notation.split(":")[0];
     }
 }
 
 function getTargetPosition(notation)
 {
-    var singleNotation = getSingleNotation(notation);
-    if (singleNotation.includes("-"))
+    if (notation.includes("-"))
     {
-        return singleNotation.split("-")[1];
+        return notation.split("-")[1];
     }
-    else if (singleNotation.includes(":"))
+    else if (notation.includes(":"))
     {
-        return singleNotation.split(":")[1];
+        return notation.split(":")[1];
     }
 }
 
 function getFigure(notation)
 {
-    var singleNotation = getSingleNotation(notation);
-    var symbol = singleNotation[0];
+    var symbol = notation[0];
 
     if (symbol === symbol.toLowerCase())
     {
