@@ -1,6 +1,13 @@
 var synth = window.speechSynthesis;
 var voices = [];
 
+function speakLastChessNotation(rawMoves, color)
+{
+    var lastMove = extractLastMove(rawMoves);
+    var translated = transalateChessNotation(lastMove);
+    speak(translated);
+}
+
 function speak(input)
 {
     if (synth.speaking)
@@ -9,7 +16,6 @@ function speak(input)
         return;
     }
 
-    var translated = transalateChessNotation(input);
     var speechHandler = new SpeechSynthesisUtterance(translated);
     var voices = synth.getVoices();
     if (voices.length === 0)
@@ -36,4 +42,13 @@ if (speechSynthesis.onvoiceschanged !== undefined)
 function transalateChessNotation(notation)
 {
     return notation;
+}
+
+function extractLastMove(moves)
+{
+    var parts = moves.split("<br>");
+    var lastPart = parts.slice(-1)[0];
+    var rawNotationParts = lastPart.split("</b>");
+    var rawNotation = rawNotationParts.slice(-1)[0];
+    return rawNotation.trim();
 }
