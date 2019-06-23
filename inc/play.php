@@ -95,6 +95,7 @@ var currentp = "white";
 var p1 = null;
 var p2 = null;
 var game_board = [[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0]];
+var moves = "empty";
 function onDataGet(data) {
 	if (data instanceof Array && data[0] === true) {
 		var stuff = data[1];
@@ -114,6 +115,15 @@ function onDataGet(data) {
 		else $("#player2").css("background-color", "#FFFFFF");
 		player1 = stuff.white;
 		player2 = stuff.black;
+		if (stuff.moves !== moves && moves !== "empty")
+		{
+			moves = stuff.moves;
+			speakLastChessNotation(moves);
+		}
+		else if (moves === "empty")
+		{
+			moves = stuff.moves;
+		}
 		refreshBoard(stuff.board);
 	}
 }

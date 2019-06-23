@@ -1,8 +1,6 @@
 var synth = window.speechSynthesis;
 var voices = [];
 
-// <b>1.</b> g2-g3 f7-f5<br><b>2.</b> g3-g4 f5:g4<br><b>3.</b> Gf1-h3 Sg8-h6<br><b>4.</b> Sg1-f3 Wh8-g8<br><b>5.</b> O-O b7-b6<br><b>6.</b> Gh3:g4 Gc8-b7<br><b>7.</b> Gg4:d7+ Ke8-f7<br><b>8.</b> b2-b3 Gb7:f3<br><b>9.</b> c2-c4
-
 function speakLastChessNotation(rawMoves)
 {
     var lastMove = extractLastMove(rawMoves);
