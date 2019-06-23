@@ -52,16 +52,16 @@ function transalateChessNotation(notation)
     if (specialMove === "none")
     {
         var isCheck = getCheck(notation);
-        var figure = getFigure(notation[0]);
+        var figure = getFigure(notation);
         var sourcePosition = getSourcePosition(notation).toUpperCase();
         var targetPosition = getTargetPosition(notation).toUpperCase();
         if (isCheck)
         {
-            final = color + " " + figure + " check on " + targetPosition;
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition + " and do a check";
         }
         else
         {
-            final = color + " " + figure + " moved to " + targetPosition + " from " + sourcePosition;
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition;
         }
     }
     else
@@ -109,30 +109,39 @@ function getSpecialMove(notation, color)
 
 function getSourcePosition(notation)
 {
-    if (notation.includes("-"))
+    var singleNotation = (notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation);
+    if (singleNotation[0] == singleNotation[0].toUpperCase())
     {
-        return notation.split("-")[0];
+        singleNotation = singleNotation.substring(1);
     }
-    else if (notation.includes(":"))
+    if (singleNotation.includes("-"))
     {
-        return notation.split(":")[0];
+        return singleNotation.split("-")[0];
+    }
+    else if (singleNotation.includes(":"))
+    {
+        return singleNotation.split(":")[0];
     }
 }
 
 function getTargetPosition(notation)
 {
-    if (notation.includes("-"))
+    var singleNotation = (notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation);
+    if (singleNotation.includes("-"))
     {
-        return notation.split("-")[1];
+        return singleNotation.split("-")[1];
     }
-    else if (notation.includes(":"))
+    else if (singleNotation.includes(":"))
     {
-        return notation.split(":")[1];
+        return singleNotation.split(":")[1];
     }
 }
 
-function getFigure(symbol)
+function getFigure(notation)
 {
+    var singleNotation = (notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation);
+    var symbol = singleNotation[0];
+    
     if (symbol === symbol.toLowerCase())
     {
         return "pawn";
