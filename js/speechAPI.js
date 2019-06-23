@@ -79,27 +79,28 @@ function getCheck(notation)
 
 function getSpecialMove(notation, color)
 {
-    if (notation === "O-O")
+    var singleNotation = getSingleNotation(notation);
+    if (singleNotation === "O-O")
     {
         return color + "short castling";
     }
-    else if (notation === "O-O-O")
+    else if (singleNotation === "O-O-O")
     {
         return color + "long castling";
     }
-    else if (notation === "1-0")
+    else if (singleNotation === "1-0")
     {
         return "White wins";
     }
-    else if (notation === "0-1")
+    else if (singleNotation === "0-1")
     {
         return "Black wins";
     }
-    else if (notation === "0.5-0.5")
+    else if (singleNotation === "0.5-0.5")
     {
         return "Match draw";
     }
-    else if (notation.includes("#"))
+    else if (singleNotation.includes("#"))
     {
         return "Check mate";
     }
@@ -109,7 +110,7 @@ function getSpecialMove(notation, color)
 
 function getSourcePosition(notation)
 {
-    var singleNotation = (notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation);
+    var singleNotation = getSingleNotation(notation);
     if (singleNotation[0] == singleNotation[0].toUpperCase())
     {
         singleNotation = singleNotation.substring(1);
@@ -126,7 +127,7 @@ function getSourcePosition(notation)
 
 function getTargetPosition(notation)
 {
-    var singleNotation = (notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation);
+    var singleNotation = getSingleNotation(notation);
     if (singleNotation.includes("-"))
     {
         return singleNotation.split("-")[1];
@@ -139,9 +140,9 @@ function getTargetPosition(notation)
 
 function getFigure(notation)
 {
-    var singleNotation = (notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation);
+    var singleNotation = getSingleNotation(notation);
     var symbol = singleNotation[0];
-    
+
     if (symbol === symbol.toLowerCase())
     {
         return "pawn";
@@ -188,4 +189,9 @@ function extractLastMove(moves)
 function getLastArrayElement(array)
 {
     return array.slice(-1)[0];
+}
+
+function getSingleNotation(notation)
+{
+    return notation.includes(" ") ? getLastArrayElement(notation.split(" ")) : notation;
 }
