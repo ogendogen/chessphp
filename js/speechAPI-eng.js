@@ -43,7 +43,7 @@ function transalateChessNotation(notation)
 {
     var parts = notation.split(" ");
     var current = getLastArrayElement(parts);
-    var color = (parts.length === 2 ? "Kolor czarny," : "Kolor biały,");
+    var color = (parts.length === 2 ? "Black" : "White");
     var notation = getSingleNotation(notation);
     var specialMove = getSpecialMove(notation, color);
 
@@ -58,19 +58,19 @@ function transalateChessNotation(notation)
 
         if (isCheck && isBeaten)
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition.slice(0, -1) + ", zbija figurę, szach";
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition.slice(0, -1) + ", beat checker and do a check";
         }
         else if (isCheck)
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition.slice(0, -1) + ", szach";
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition.slice(0, -1) + " and do a check";
         }
         else if (isBeaten)
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition + " i zbija figurę";
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition + " and beat checker";
         }
         else
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition;
+            final = color + " " + figure + " moved from " + sourcePosition + " to " + targetPosition;
         }
     }
     else
@@ -95,27 +95,27 @@ function getSpecialMove(notation, color)
 {
     if (notation === "O-O")
     {
-        return color + "krótka roszada";
+        return color + "short castling";
     }
     else if (notation === "O-O-O")
     {
-        return color + "długa roszada";
+        return color + "long castling";
     }
     else if (notation === "1-0")
     {
-        return "Kolor biały wygrywa!";
+        return "White wins";
     }
     else if (notation === "0-1")
     {
-        return "Kolor czarny wygrywa!";
+        return "Black wins";
     }
     else if (notation === "0.5-0.5")
     {
-        return "Remis.";
+        return "Match draw";
     }
     else if (notation.includes("#"))
     {
-        return "Szach mat!";
+        return "Check mate";
     }
 
     return "none";
@@ -155,34 +155,34 @@ function getFigure(notation)
 
     if (symbol === symbol.toLowerCase())
     {
-        return "pion";
+        return "pawn";
     }
 
     switch(symbol)
     {
         case "K":
         {
-            return "król";
+            return "king";
         }
         case "H":
         {
-            return "królowa";
+            return "queen";
         }
         case "G":
         {
-            return "goniec";
+            return "bishop";
         }
         case "S":
         {
-            return "skoczek";
+            return "knight";
         }
         case "W":
         {
-            return "wieża";
+            return "rock";
         }
         default:
         {
-            return "nieznana figura";
+            return "unknown checker";
         }
     }
 }
