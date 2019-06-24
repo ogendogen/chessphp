@@ -58,19 +58,19 @@ function transalateChessNotation(notation)
 
         if (isCheck && isBeaten)
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition.slice(0, -1) + ", zbija figurę, szach";
+            final = color + " " + figure + " przemieszczenie z pola " + sourcePosition + " na pole " + targetPosition.slice(0, -1) + ", zbija figurę, szach";
         }
         else if (isCheck)
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition.slice(0, -1) + ", szach";
+            final = color + " " + figure + " przemieszczenie z pola " + sourcePosition + " na pole " + targetPosition.slice(0, -1) + ", szach";
         }
         else if (isBeaten)
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition + " i zbija figurę";
+            final = color + " " + figure + " przemieszczenie z pola " + sourcePosition + " na pole " + targetPosition + " i zbija figurę";
         }
         else
         {
-            final = color + " " + figure + " przeniesiony z pola " + sourcePosition + " na pole " + targetPosition;
+            final = color + " " + figure + " przemieszczenie z pola " + sourcePosition + " na pole " + targetPosition;
         }
     }
     else
