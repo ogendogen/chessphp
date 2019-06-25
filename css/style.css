@@ -134,3 +134,17 @@ footer {
 #process {
 	opacity: 1.00;
 }
+
+.zoomarea
+{
+    height: 40px;
+    width: 100%;
+    float: left;
+}
+
+.zoombtn
+{
+	height: 100%;
+	width: 50%;
+	float: left;
+}

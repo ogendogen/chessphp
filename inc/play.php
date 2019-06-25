@@ -49,7 +49,7 @@ else {
 	</div>
 	<!-- Promotion Modal End -->
 	
-	<div class="row">
+	<div id="mainrow" class="row">
 		<div id="board" class="col-md-offset-2 col-md-6">
 		</div>
 		
@@ -67,6 +67,12 @@ else {
 				<strong>Przebieg meczu</strong>
 				<div id="process">
 				</div>
+			</div>
+
+			<div id="zoomArea" class="zoomarea">
+				<input type="button" class="btn btn-success zoombtn" value="Powiększ" onclick="zoomIn()">
+				<input type="button" class="btn btn-danger zoombtn" value="Pomniejsz" onclick="zoomOut()">
+				<!--<br style="clear:both;"/>-->
 			</div>
 		</div>
 	</div>
@@ -207,3 +213,4 @@ $(document).ready(function(){
 </script>
 
 <script src="js/speechAPI.js"></script>
+<script src="js/zoom.js"></script>
