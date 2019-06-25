@@ -49,7 +49,7 @@ else {
 	</div>
 	<!-- Promotion Modal End -->
 	
-	<div id="mainrow" class="row">
+	<div id="mainrow" class="row" style="margin-top: 30px;">
 		<div id="board" class="col-md-offset-2 col-md-6">
 		</div>
 		
