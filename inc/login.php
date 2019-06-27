@@ -40,7 +40,7 @@ else if (isset($_SESSION['userid'])) {
 	<div class="row text-center" style="margin-top: 50px;">
 
 		<div class="col-md-8 col-md-offset-2">
-			<form role="form" method="post" action="?tab=login">
+			<form role="form" method="post" action="?tab=login" alt="formularz logowania">
 
 				<legend class="text-center">Logowanie się</legend>
 
@@ -48,12 +48,12 @@ else if (isset($_SESSION['userid'])) {
 
 					<div class="form-group col-md-6">
 						<label for="first_name">Nick</label>
-						<input type="text" class="form-control" name="nick" id="first_name" placeholder="Twój nick">
+						<input type="text" class="form-control" name="nick" id="first_name" placeholder="Twój nick" alt="twoj nick">
 					</div>
 					
 					<div class="form-group col-md-6">
 						<label for="password">Hasło</label>
-						<input type="password" class="form-control" name="pass" id="password" placeholder="Twoje hasło">
+						<input type="password" class="form-control" name="pass" id="password" placeholder="Twoje hasło" alt="twoje haslo">
 					</div>
 
 
@@ -61,7 +61,7 @@ else if (isset($_SESSION['userid'])) {
 				
 				<div class="form-group">
 					<div class="col-md-12 text-center">
-						<button type="submit" class="btn btn-primary">
+						<button type="submit" class="btn btn-primary" alt="przycisk logowania">
 							Zaloguj się
 						</button>
 					</div>

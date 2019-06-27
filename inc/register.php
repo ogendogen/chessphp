@@ -22,7 +22,7 @@ if (isset($_SESSION['userid'])) {
 	<div class="row" style="margin-top: 50px;">
 
 		<div class="col-md-12">
-			<form role="form" method="post" action="?tab=register">
+			<form role="form" method="post" action="?tab=register" alt="formularz rejestracji">
 
 				<legend class="text-center">Rejestracja</legend>
 
@@ -30,29 +30,29 @@ if (isset($_SESSION['userid'])) {
 
 					<div class="form-group col-xs-12 col-md-6 col-md-offset-3">
 						<label for="first_name">Nick</label>
-						<input type="text" class="form-control" name="nick" id="first_name" placeholder="Twój nick">
+						<input type="text" class="form-control" name="nick" id="first_name" placeholder="Twój nick" alt="twoj nick">
 					</div>
 					
 					<div class="form-group col-xs-12 col-md-6 col-md-offset-3">
 						<label for="password">Hasło</label>
-						<input type="password" class="form-control" name="pass" id="password" placeholder="Twoje hasło" onblur="validatePasswords()">
+						<input type="password" class="form-control" name="pass" id="password" placeholder="Twoje hasło" onblur="validatePasswords()" alt="twoje haslo">
 					</div>
 					
 					<div class="form-group col-xs-12 col-md-6 col-md-offset-3">
 						<label for="password">Potwierdź hasło</label>
-						<input type="password" class="form-control" name="pass2" id="password2" placeholder="Potwierdź hasło" onblur="validatePasswords()">
+						<input type="password" class="form-control" name="pass2" id="password2" placeholder="Potwierdź hasło" onblur="validatePasswords()" alt="potwierdz haslo">
 					</div>
 					
 					<div class="form-group col-xs-12 col-md-6 col-md-offset-3">
 						<label for="password">Email</label>
-						<input type="text" class="form-control" name="mail" id="email" placeholder="Twój email" onblur="validateEmail()">
+						<input type="text" class="form-control" name="mail" id="email" placeholder="Twój email" onblur="validateEmail()" alt="twoj email">
 					</div>
 
 				</fieldset>
 				
 				<div class="form-group text-center">
 					<div class="col-md-12">
-						<button type="submit" id="btn" class="btn btn-primary">
+						<button type="submit" id="btn" class="btn btn-primary" alt="przycisk rejestracji">
 							Zarejestruj się
 						</button>
 					</div>

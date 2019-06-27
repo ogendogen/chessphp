@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="nav" class="navbar navbar-inverse navbar-fixed-top" alt="nawigacja">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -41,17 +41,17 @@
 			<?php
 				if (!isset($_SESSION['userid'])) {
 			?>
-				<li id=page0><a href="http://<?php echo $site; ?>">Strona główna</a></li>
-				<li id=page1><a href="http://<?php echo $site; ?>?tab=browse">Oglądaj mecze</a></li>
-				<li id=page2><a href="http://<?php echo $site; ?>?tab=login">Logowanie</a></li>
-				<li id=page3><a href="http://<?php echo $site; ?>?tab=register">Rejestracja</a></li>
+				<li id=page0><a href="http://<?php echo $site; ?>" alt="strona glowna">Strona główna</a></li>
+				<li id=page1><a href="http://<?php echo $site; ?>?tab=browse" alt="ogladaj mecze">Oglądaj mecze</a></li>
+				<li id=page2><a href="http://<?php echo $site; ?>?tab=login" alt="logowanie">Logowanie</a></li>
+				<li id=page3><a href="http://<?php echo $site; ?>?tab=register" alt="rejestracja">Rejestracja</a></li>
 			<?php
 				} else {
 			?>
-				<li id=page0><a href="http://<?php echo $site; ?>">Strona główna</a></li>
-				<li id=page1><a href="http://<?php echo $site; ?>?tab=browse">Zagraj lub oglądaj</a></li>
-				<li id=page2><a href="#">Zalogowany jako: <strong><?php echo $_SESSION['username']; ?></strong></a></li>
-				<li id=page3><a href="http://<?php echo $site; ?>?tab=login&logout=1">Wyloguj</a></li>
+				<li id=page0><a href="http://<?php echo $site; ?>" alt="strona glowna">Strona główna</a></li>
+				<li id=page1><a href="http://<?php echo $site; ?>?tab=browse" alt="zagraj lub ogladaj">Zagraj lub oglądaj</a></li>
+				<li id=page2><a href="#" alt="twoj login">Zalogowany jako: <strong><?php echo $_SESSION['username']; ?></strong></a></li>
+				<li id=page3><a href="http://<?php echo $site; ?>?tab=login&logout=1" alt="wyloguj">Wyloguj</a></li>
 			<?php
 				}
 			?>

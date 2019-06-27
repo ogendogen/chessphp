@@ -10,7 +10,7 @@ $gamelist = $db->exec("SELECT
 			LEFT JOIN users AS u2 ON games.player_black = u2.user_id
 		WHERE finished = 0 ORDER BY game_id DESC");
 
-echo("<div class=\"container\"><a href=\"?tab=play\" class=\"gamerow btn btn-primary img-responsive\"><br>Rozpocznij nową grę<br>&nbsp;</a>");
+echo("<div class=\"container\"><a href=\"?tab=play\" class=\"gamerow btn btn-primary img-responsive\" alt=\"rozpoczecie gry\"><br>Rozpocznij nową grę<br>&nbsp;</a>");
 for ($i=0; $i<count($gamelist); $i++) {
 	$waiting = false;
 	if ($gamelist[$i]["player_white"] === null) { $gamelist[$i]["player_white"] = "???"; $waiting = true; }

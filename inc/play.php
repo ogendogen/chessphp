@@ -50,7 +50,7 @@ else {
 	<!-- Promotion Modal End -->
 	
 	<div id="mainrow" class="row" style="margin-top: 30px;">
-		<div id="board" class="col-md-offset-2 col-md-6">
+		<div id="board" class="col-md-offset-2 col-md-6" alt="plansza do gry">
 		</div>
 		
 		<div id="info" class="col-md-6">
@@ -63,15 +63,15 @@ else {
 				</div>
 			</strong>
 			
-			<div id="match" class="row bg-success pre-scrollable">
+			<div id="match" class="row bg-success pre-scrollable" alt="informacje o przebiegu meczu">
 				<strong>Przebieg meczu</strong>
 				<div id="process">
 				</div>
 			</div>
 
 			<div id="zoomArea" class="zoomarea">
-				<input type="button" class="btn btn-success zoombtn" value="Powiększ" onclick="zoomIn()">
-				<input type="button" class="btn btn-danger zoombtn" value="Pomniejsz" onclick="zoomOut()">
+				<input type="button" class="btn btn-success zoombtn" value="Powiększ" onclick="zoomIn()" alt="przycisk powiekszajacy">
+				<input type="button" class="btn btn-danger zoombtn" value="Pomniejsz" onclick="zoomOut()" alt="przycisk pomniejszajacy">
 				<!--<br style="clear:both;"/>-->
 			</div>
 		</div>
